@@ -1,0 +1,90 @@
+DEVELOPER'S NOTES
+
+2-21-2020, 1354H (initial version)
+3-1-2020, 1319H  (second edit):
+
+	No other specified races other than humans at the time of this writing. Other magical creatures have not been fleshed outin detail.
+
+	Note: Leave the story-related technicalities to Kyle. We're here to handle the back. Just include the other specifications later on.
+
+	GENERAL:
+
+		Relationship class : defines relationship between 2 Humans/Mystics/						 etc. Keep it between 2 for simplicity, the 						 fans can generate their own Babaylan webs.
+
+	Humans
+		> may or may not have magical aptitude (is_caster = true/false)
+		
+		> magical abilities determined by (summoner_lvl, elemental_lvl, distortion_lvl, illusion_lvl). Casters can be capable of two or more magical classifications with additional training. The caster may learn some skills from outside of their natural ability set, but not all. (Make a system to determine which spells/abilities are available for which classes.)
+		
+		> (sanity_level) is a bit harder to define in this case but it should be connected to (corruption_level)
+		
+		> (mana_level) determined by (current_mana) and (max_mana)
+		
+		> (hp_level) determined by (current_HP) and (max_HP)
+
+		> weaknesses[] differ for each individual
+
+		> status_effects (not sure what to do with this, maybe a HashMap?) because some buffs like perception blocking increase evasion and so on
+
+		> (faction) denotes the individual's faction
+
+		> (is_infected) determines whether or not the human has been afflicted by void magic
+
+			(void_form) : determines whether the human is an Afflicted/Corrupted/Lost/Shade
+
+		> constitution (didn't add this yet, research it)
+
+		
+	Magic Classifications for Humans
+
+		SUMMONER    : allows caster to form contracts with Mystics and have access to their power and abilities.
+
+			> HashMap for storing contracts with specified Mystic objects (see if C# has its own version of a HashMap)
+
+					KEY 			   : 		VALUE
+
+				Contract (6-digit int) : 		Mystic
+
+			TYPES OF SUMMONER CONTRACT
+				
+				Type I: allows the Mystic to exist outside of mana reserves while being at the summoner's service
+
+				Type II*: requires special rituals and training to be able to handle the stress of fusing the summoner and the mystic (rituals can temporarily affect health/mana/sanity?)
+
+		* Fusing rituals for Type II contracts affects health more than mana but this level of affectation can decrease due to training and other factors ex. constitution. 
+
+		
+		ELEMENTAL   : standard four-elements type magic user
+
+			controlled_elements[] : array of one or more elements the caster can 							control
+
+			<element>_affinity 	  : caster's level of affinity with the element
+
+		* Training affects elemental ability but a lot depends on affinity and other factors. Some skills can only be learned by certain people.
+
+		DISTORTION  : casters distort the laws of physics
+
+		ILLUSION    : distorts target's perceptive abilities
+
+			Senses affected:
+
+				Touch
+				Hearing
+				Sight
+				Taste(?)
+				Smell(?)
+
+?: Might not include these to make things easier. 
+
+		VOID        : outlawed magic capable of corrupting the user
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tech issues:
+
+	> how to implement different interfaces dynamically?
+
+		Ex. public class Caster extends Human implements <desired magic_classification>
+
+	See: https://stackoverflow.com/questions/15965912/dynamically-choosing-a-class
