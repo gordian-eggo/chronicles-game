@@ -11,18 +11,22 @@ DEVELOPER'S NOTES
 
 		Relationship class : defines relationship between 2 Humans/Mystics/						 etc. Keep it between 2 for simplicity, the 						 fans can generate their own Babaylan webs.
 
+		Basic class: Creature. Includes all things that a basic creature would have.
+
+			> (sanity_level) is a bit harder to define in this case but it should be connected to (corruption_level)
+		
+			> (mana_level) determined by (current_mana) and (max_mana)
+			
+			> (hp_level) determined by (current_HP) and (max_HP)
+	
+			> weaknesses[] differ for each individual
+
+			> constitution (didn't add this yet, research it)
+
 	Humans
 		> may or may not have magical aptitude (is_caster = true/false)
 		
 		> magical abilities determined by (summoner_lvl, elemental_lvl, distortion_lvl, illusion_lvl). Casters can be capable of two or more magical classifications with additional training. The caster may learn some skills from outside of their natural ability set, but not all. (Make a system to determine which spells/abilities are available for which classes.)
-		
-		> (sanity_level) is a bit harder to define in this case but it should be connected to (corruption_level)
-		
-		> (mana_level) determined by (current_mana) and (max_mana)
-		
-		> (hp_level) determined by (current_HP) and (max_HP)
-
-		> weaknesses[] differ for each individual
 
 		> status_effects (not sure what to do with this, maybe a HashMap?) because some buffs like perception blocking increase evasion and so on
 
@@ -31,8 +35,6 @@ DEVELOPER'S NOTES
 		> (is_infected) determines whether or not the human has been afflicted by void magic
 
 			(void_form) : determines whether the human is an Afflicted/Corrupted/Lost/Shade
-
-		> constitution (didn't add this yet, research it)
 
 		
 	Magic Classifications for Humans
@@ -71,8 +73,6 @@ DEVELOPER'S NOTES
 				Touch
 				Hearing
 				Sight
-				Taste(?)
-				Smell(?)
 
 ?: Might not include these to make things easier. 
 

@@ -1,4 +1,4 @@
-Check dev-notes-nagasaki.txt regularly for game details and tech issues.
+Check dev-notes folders regularly for game details and tech issues.
 
 TODO:
 
